@@ -11,6 +11,20 @@
 @package type-tree
 @version 0.1.0.0
 
+module Language.Haskell.TypeTree.Datatype
+data Binding
+Bound :: Name -> Binding
+Unbound :: Name -> Binding
+class IsDatatype a
+asDatatype :: IsDatatype a => a -> Q (Binding, [Type])
+unwrap :: Type -> (Binding, [Type])
+guess :: Name -> Binding
+instance GHC.Classes.Eq Language.Haskell.TypeTree.Datatype.Binding
+instance GHC.Classes.Ord Language.Haskell.TypeTree.Datatype.Binding
+instance GHC.Show.Show Language.Haskell.TypeTree.Datatype.Binding
+instance Language.Haskell.TypeTree.Datatype.IsDatatype Language.Haskell.TH.Syntax.Name
+instance Language.Haskell.TypeTree.Datatype.IsDatatype Language.Haskell.TH.Lib.TypeQ
+
 module Language.Haskell.TypeTree
 
 -- | Build a "type tree" of the given datatype.
@@ -19,23 +33,23 @@ module Language.Haskell.TypeTree
 --   variables will appear as <a>VarL</a>. If the datastructure is
 --   recursive, occurrences of the node after the first will be wrapped in
 --   <a>Recursive</a>.
-ttReify :: Name -> Q (Tree Leaf)
+ttReify :: IsDatatype t => t -> Q (Tree Leaf)
 
 -- | <a>ttReify</a> with the provided options.
-ttReifyOpts :: ReifyOpts -> Name -> Q (Tree Leaf)
+ttReifyOpts :: IsDatatype t => ReifyOpts -> t -> Q (Tree Leaf)
 
 -- | Embed the produced tree as an expression.
-ttLit :: Name -> ExpQ
+ttLit :: IsDatatype t => t -> ExpQ
 
 -- | <a>ttLit</a> with provided opts.
-ttLitOpts :: ReifyOpts -> Name -> ExpQ
+ttLitOpts :: IsDatatype t => ReifyOpts -> t -> ExpQ
 
 -- | Produces a string literal representing a type tree. Useful for
 --   debugging purposes.
-ttDescribe :: Name -> ExpQ
+ttDescribe :: IsDatatype t => t -> ExpQ
 
 -- | <a>ttDescribe</a> with the given options.
-ttDescribeOpts :: ReifyOpts -> Name -> ExpQ
+ttDescribeOpts :: IsDatatype t => ReifyOpts -> t -> ExpQ
 
 -- | Some type and its arguments, as representable in a graph.
 type Key = (Name, [Type])
@@ -49,7 +63,7 @@ type Arity = Int
 --   
 --   <tt>$(ttEdges ''Foo)</tt> produces a list suitable for passing to
 --   <a>graphFromEdges</a>.
-ttEdges :: Name -> ExpQ
+ttEdges :: IsDatatype t => t -> ExpQ
 
 -- | <pre>
 --   $(ttConnComp ''Foo) :: [<a>SCC</a> (<a>Name</a>, <a>Arity</a>)]
@@ -58,7 +72,7 @@ ttEdges :: Name -> ExpQ
 --   <tt>$(ttConnComp ''Foo)</tt> produces a topologically sorted list of
 --   the strongly connected components of the graph representing
 --   <tt>Foo</tt>.
-ttConnComp :: Name -> ExpQ
+ttConnComp :: IsDatatype t => t -> ExpQ
 data Leaf
 
 -- | <tt>ConL (name, xs)</tt> is a field with type <tt>ConT name</tt>,
@@ -90,6 +104,3 @@ ReifyOpts :: Bool -> Set Name -> ReifyOpts
 --   </pre>
 defaultOpts :: ReifyOpts
 instance GHC.Show.Show Language.Haskell.TypeTree.ReifyEnv
-instance GHC.Classes.Eq Language.Haskell.TypeTree.Binding
-instance GHC.Classes.Ord Language.Haskell.TypeTree.Binding
-instance GHC.Show.Show Language.Haskell.TypeTree.Binding
