@@ -11,21 +11,23 @@
 @package type-tree
 @version 0.1.0.0
 
-module Language.Haskell.TypeTree.Datatype
-data Binding
-Bound :: Name -> Binding
-Unbound :: Name -> Binding
-class IsDatatype a
-asDatatype :: IsDatatype a => a -> Q (Binding, [Type])
-unwrap :: Type -> (Binding, [Type])
-guess :: Name -> Binding
-instance GHC.Classes.Eq Language.Haskell.TypeTree.Datatype.Binding
-instance GHC.Classes.Ord Language.Haskell.TypeTree.Datatype.Binding
-instance GHC.Show.Show Language.Haskell.TypeTree.Datatype.Binding
-instance Language.Haskell.TypeTree.Datatype.IsDatatype Language.Haskell.TH.Syntax.Name
-instance Language.Haskell.TypeTree.Datatype.IsDatatype Language.Haskell.TH.Lib.TypeQ
-
 module Language.Haskell.TypeTree
+class IsDatatype a
+
+-- | Produce binding info and a list of type arguments
+asDatatype :: IsDatatype a => a -> Q (Binding, [Type])
+
+-- | More ergonomic representation of bound and unbound names of things.
+data Binding
+
+-- | We know this name refers to a specific thing (i.e. it's a constructor)
+Bound :: Name -> Binding
+
+-- | We don't know what this is (i.e. a type variable)
+Unbound :: Name -> Binding
+
+-- | Convenience function.
+guess :: Name -> Binding
 
 -- | Build a "type tree" of the given datatype.
 --   
