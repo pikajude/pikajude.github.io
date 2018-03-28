@@ -30,28 +30,28 @@
 <a name="line-21"></a>      <span class='hs-conid'>IsDatatype</span><span class='hs-layout'>(</span><span class='hs-keyglyph'>..</span><span class='hs-layout'>)</span>
 <a name="line-22"></a>    <span class='hs-layout'>,</span> <span class='hs-conid'>Binding</span><span class='hs-layout'>(</span><span class='hs-keyglyph'>..</span><span class='hs-layout'>)</span>
 <a name="line-23"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>guess</span>
-<a name="line-24"></a>
-<a name="line-25"></a>      <span class='hs-comment'>-- * Producing trees</span>
-<a name="line-26"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttReify</span>
-<a name="line-27"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttReifyOpts</span>
-<a name="line-28"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttLit</span>
-<a name="line-29"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttLitOpts</span>
-<a name="line-30"></a>      <span class='hs-comment'>-- ** Debugging trees</span>
-<a name="line-31"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttDescribe</span>
-<a name="line-32"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttDescribeOpts</span>
-<a name="line-33"></a>      <span class='hs-comment'>-- ** Building graphs</span>
-<a name="line-34"></a>    <span class='hs-layout'>,</span> <span class='hs-conid'>Key</span>
-<a name="line-35"></a>    <span class='hs-layout'>,</span> <span class='hs-conid'>Arity</span>
-<a name="line-36"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttEdges</span>
-<a name="line-37"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttConnComp</span>
-<a name="line-38"></a>      <span class='hs-comment'>-- * Customizing trees</span>
-<a name="line-39"></a>    <span class='hs-layout'>,</span> <span class='hs-conid'>Leaf</span><span class='hs-layout'>(</span><span class='hs-keyglyph'>..</span><span class='hs-layout'>)</span>
-<a name="line-40"></a>    <span class='hs-layout'>,</span> <span class='hs-conid'>ReifyOpts</span><span class='hs-layout'>(</span><span class='hs-keyglyph'>..</span><span class='hs-layout'>)</span>
-<a name="line-41"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>defaultOpts</span>
-<a name="line-42"></a>    <span class='hs-layout'>)</span> <span class='hs-keyword'>where</span>
-<a name="line-43"></a>
-<a name="line-44"></a><span class='hs-keyword'>import</span> <span class='hs-conid'>Control.Applicative</span>
-<a name="line-45"></a><span class='hs-keyword'>import</span> <span class='hs-conid'>Control.Monad</span>
+<a name="line-24"></a>      <span class='hs-comment'>-- * Producing trees</span>
+<a name="line-25"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttReify</span>
+<a name="line-26"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttReifyOpts</span>
+<a name="line-27"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttLit</span>
+<a name="line-28"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttLitOpts</span>
+<a name="line-29"></a>      <span class='hs-comment'>-- ** Debugging trees</span>
+<a name="line-30"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttDescribe</span>
+<a name="line-31"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttDescribeOpts</span>
+<a name="line-32"></a>      <span class='hs-comment'>-- ** Building graphs</span>
+<a name="line-33"></a>    <span class='hs-layout'>,</span> <span class='hs-conid'>Key</span>
+<a name="line-34"></a>    <span class='hs-layout'>,</span> <span class='hs-conid'>Arity</span>
+<a name="line-35"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttEdges</span>
+<a name="line-36"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>ttConnComp</span>
+<a name="line-37"></a>      <span class='hs-comment'>-- * Customizing trees</span>
+<a name="line-38"></a>    <span class='hs-layout'>,</span> <span class='hs-conid'>Leaf</span><span class='hs-layout'>(</span><span class='hs-keyglyph'>..</span><span class='hs-layout'>)</span>
+<a name="line-39"></a>    <span class='hs-layout'>,</span> <span class='hs-conid'>ReifyOpts</span><span class='hs-layout'>(</span><span class='hs-keyglyph'>..</span><span class='hs-layout'>)</span>
+<a name="line-40"></a>    <span class='hs-layout'>,</span> <span class='hs-varid'>defaultOpts</span>
+<a name="line-41"></a>    <span class='hs-layout'>)</span> <span class='hs-keyword'>where</span>
+<a name="line-42"></a>
+<a name="line-43"></a><span class='hs-keyword'>import</span> <span class='hs-conid'>Control.Applicative</span>
+<a name="line-44"></a><span class='hs-keyword'>import</span> <span class='hs-conid'>Control.Monad</span>
+<a name="line-45"></a><span class='hs-keyword'>import</span> <span class='hs-conid'>Debug.Trace</span>
 <a name="line-46"></a><span class='hs-keyword'>import</span> <span class='hs-conid'>Control.Monad.Reader</span>
 <a name="line-47"></a><span class='hs-keyword'>import</span> <span class='hs-conid'>Data.Graph</span>
 <a name="line-48"></a><span class='hs-keyword'>import</span> <span class='hs-conid'>Data.List</span>
@@ -188,276 +188,283 @@
 <a name="line-179"></a>                    <span class='hs-conid'>TyConI</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>processDec</span> <span class='hs-varid'>x</span> <span class='hs-varid'>n</span> <span class='hs-varid'>givenArgs</span>
 <a name="line-180"></a>                    <span class='hs-conid'>FamilyI</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>insts</span> <span class='hs-keyglyph'>-&gt;</span>
 <a name="line-181"></a>                        <span class='hs-keyword'>case</span> <span class='hs-varid'>matches</span> <span class='hs-varid'>givenArgs</span> <span class='hs-varid'>insts</span> <span class='hs-keyword'>of</span>
-<a name="line-182"></a>                            <span class='hs-conid'>Just</span> <span class='hs-layout'>(</span><span class='hs-varid'>dec</span><span class='hs-layout'>,</span> <span class='hs-varid'>gargs</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-keyword'>do</span>
-<a name="line-183"></a>                                <span class='hs-keyword'>let</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>holes</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>decodeHead'</span> <span class='hs-varid'>gargs</span> <span class='hs-varid'>dec</span>
-<a name="line-184"></a>                                <span class='hs-varid'>cons</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>decodeBody</span> <span class='hs-varid'>dec</span>
-<a name="line-185"></a>                                <span class='hs-keyword'>if</span> <span class='hs-varid'>length</span> <span class='hs-varid'>gargs</span> <span class='hs-varop'>/=</span> <span class='hs-varid'>length</span> <span class='hs-varid'>holes</span>
-<a name="line-186"></a>                                    <span class='hs-keyword'>then</span> <span class='hs-keyword'>do</span>
-<a name="line-187"></a>                                        <span class='hs-varid'>arglist</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>mapM</span> <span class='hs-layout'>(</span><span class='hs-varid'>lift</span> <span class='hs-varop'>.</span> <span class='hs-varid'>fillVar</span><span class='hs-layout'>)</span> <span class='hs-varid'>holes</span>
-<a name="line-188"></a>                                        <span class='hs-varid'>go</span> <span class='hs-layout'>(</span><span class='hs-conid'>Bound</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span> <span class='hs-varid'>arglist</span>
-<a name="line-189"></a>                                    <span class='hs-keyword'>else</span> <span class='hs-varid'>withReaderT</span>
-<a name="line-190"></a>                                             <span class='hs-layout'>(</span><span class='hs-keyglyph'>\</span><span class='hs-varid'>m</span> <span class='hs-keyglyph'>-&gt;</span>
-<a name="line-191"></a>                                                  <span class='hs-varid'>foldr</span>
-<a name="line-192"></a>                                                      <span class='hs-varid'>resolveType</span>
-<a name="line-193"></a>                                                      <span class='hs-varid'>m</span>
-<a name="line-194"></a>                                                      <span class='hs-layout'>(</span><span class='hs-varid'>zip</span> <span class='hs-varid'>holes</span> <span class='hs-varid'>givenArgs</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-varop'>$</span>
-<a name="line-195"></a>                                         <span class='hs-conid'>Just</span> <span class='hs-varop'>.</span> <span class='hs-conid'>Node</span> <span class='hs-layout'>(</span><span class='hs-conid'>ConL</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>gargs</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-varop'>&lt;$&gt;</span>
-<a name="line-196"></a>                                         <span class='hs-varid'>mapMaybeM</span> <span class='hs-layout'>(</span><span class='hs-varid'>uncurry</span> <span class='hs-varid'>resolve</span><span class='hs-layout'>)</span> <span class='hs-varid'>cons</span>
-<a name="line-197"></a>                            <span class='hs-conid'>Nothing</span> <span class='hs-keyglyph'>-&gt;</span>
-<a name="line-198"></a>                                <span class='hs-varid'>fail</span> <span class='hs-varop'>$</span>
-<a name="line-199"></a>                                <span class='hs-str'>"sorry, I cannot find a data instance in scope which matches: "</span> <span class='hs-varop'>++</span>
-<a name="line-200"></a>                                <span class='hs-varid'>show</span> <span class='hs-layout'>(</span><span class='hs-varid'>treeDoc</span> <span class='hs-layout'>(</span><span class='hs-conid'>Node</span> <span class='hs-layout'>(</span><span class='hs-conid'>ConL</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>givenArgs</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-conid'>[]</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span>
-<a name="line-201"></a>                    <span class='hs-conid'>DataConI</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>badInput</span> <span class='hs-str'>"a data constructor"</span>
-<a name="line-202"></a>                    <span class='hs-conid'>ClassOpI</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>badInput</span> <span class='hs-str'>"a class method"</span>
-<a name="line-203"></a>                    <span class='hs-conid'>ClassI</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>badInput</span> <span class='hs-str'>"a class name"</span>
-<a name="line-204"></a>                    <span class='hs-conid'>PatSynI</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>badInput</span> <span class='hs-str'>"a pattern synonym"</span>
-<a name="line-205"></a>                    <span class='hs-conid'>TyVarI</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>badInput</span> <span class='hs-str'>"an unbound type variable (how did you get here?)"</span>
-<a name="line-206"></a>                    <span class='hs-conid'>VarI</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>badInput</span> <span class='hs-str'>"an ordinary value"</span>
-<a name="line-207"></a>                    <span class='hs-varid'>x</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>error</span> <span class='hs-varop'>$</span> <span class='hs-varid'>show</span> <span class='hs-layout'>(</span><span class='hs-varid'>x</span><span class='hs-layout'>,</span> <span class='hs-varid'>givenArgs</span><span class='hs-layout'>)</span>
-<a name="line-208"></a>    <span class='hs-varid'>badInput</span> <span class='hs-varid'>s</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>fail</span> <span class='hs-varop'>$</span> <span class='hs-str'>"ttReify expects a type constructor, but was given "</span> <span class='hs-varop'>++</span> <span class='hs-varid'>s</span>
-<a name="line-209"></a>    <span class='hs-varid'>processDec</span> <span class='hs-varid'>x</span> <span class='hs-varid'>n</span> <span class='hs-varid'>givenArgs</span> <span class='hs-keyglyph'>=</span> <span class='hs-keyword'>do</span>
-<a name="line-210"></a>        <span class='hs-keyword'>let</span> <span class='hs-layout'>(</span><span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-varid'>wantedArgs</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>decodeHead</span> <span class='hs-varid'>givenArgs</span> <span class='hs-varid'>x</span>
-<a name="line-211"></a>        <span class='hs-varid'>cons</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>decodeBody</span> <span class='hs-varid'>x</span>
-<a name="line-212"></a>        <span class='hs-comment'>-- invariant: constructor fields (obviously) must be of</span>
-<a name="line-213"></a>        <span class='hs-comment'>-- kind *. if the type isn't fully applied, generate some</span>
-<a name="line-214"></a>        <span class='hs-comment'>-- placeholders and recurse. this happens when you pass in</span>
-<a name="line-215"></a>        <span class='hs-comment'>-- type function at top level (like ttReify ''Maybe)</span>
-<a name="line-216"></a>        <span class='hs-keyword'>if</span> <span class='hs-varid'>length</span> <span class='hs-varid'>givenArgs</span> <span class='hs-varop'>/=</span> <span class='hs-varid'>length</span> <span class='hs-varid'>wantedArgs</span>
-<a name="line-217"></a>            <span class='hs-keyword'>then</span> <span class='hs-keyword'>do</span>
-<a name="line-218"></a>                <span class='hs-varid'>vars</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>lift</span> <span class='hs-varop'>$</span> <span class='hs-varid'>sequence</span> <span class='hs-layout'>(</span><span class='hs-varid'>fmap</span> <span class='hs-conid'>VarT</span> <span class='hs-varop'>.</span> <span class='hs-varid'>newName</span> <span class='hs-varop'>.</span> <span class='hs-varid'>nameBase</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>wantedArgs</span><span class='hs-layout'>)</span>
-<a name="line-219"></a>                <span class='hs-varid'>go</span> <span class='hs-layout'>(</span><span class='hs-conid'>Bound</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span> <span class='hs-varid'>vars</span>
-<a name="line-220"></a>            <span class='hs-keyword'>else</span> <span class='hs-varid'>withReaderT</span> <span class='hs-layout'>(</span><span class='hs-keyglyph'>\</span><span class='hs-varid'>m</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>foldr</span> <span class='hs-varid'>resolution</span> <span class='hs-varid'>m</span> <span class='hs-varop'>$</span> <span class='hs-varid'>zip</span> <span class='hs-varid'>wantedArgs</span> <span class='hs-varid'>givenArgs</span><span class='hs-layout'>)</span> <span class='hs-varop'>$</span>
-<a name="line-221"></a>                 <span class='hs-conid'>Just</span> <span class='hs-varop'>.</span> <span class='hs-conid'>Node</span> <span class='hs-layout'>(</span><span class='hs-conid'>ConL</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>givenArgs</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>mapMaybeM</span> <span class='hs-layout'>(</span><span class='hs-varid'>uncurry</span> <span class='hs-varid'>resolve</span><span class='hs-layout'>)</span> <span class='hs-varid'>cons</span>
-<a name="line-222"></a>    <span class='hs-varid'>mapMaybeM</span> <span class='hs-varid'>m</span> <span class='hs-varid'>xs</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>catMaybes</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>mapM</span> <span class='hs-varid'>m</span> <span class='hs-varid'>xs</span>
-<a name="line-223"></a>    <span class='hs-varid'>seqTup</span> <span class='hs-layout'>(</span><span class='hs-varid'>a</span><span class='hs-layout'>,</span> <span class='hs-varid'>b</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>(,)</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>a</span> <span class='hs-varop'>&lt;*&gt;</span> <span class='hs-varid'>b</span>
-<a name="line-224"></a>    <span class='hs-varid'>fillVar</span> <span class='hs-layout'>(</span><span class='hs-conid'>VarT</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>VarT</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>newName</span> <span class='hs-layout'>(</span><span class='hs-varid'>nameBase</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span>
-<a name="line-225"></a>    <span class='hs-varid'>fillVar</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-varid'>x</span>
-<a name="line-226"></a>    <span class='hs-varid'>fill</span> <span class='hs-varid'>r</span><span class='hs-keyglyph'>@</span><span class='hs-conid'>ReifyEnv</span> <span class='hs-layout'>{</span><span class='hs-varid'>typeEnv</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>te</span><span class='hs-layout'>}</span> <span class='hs-layout'>(</span><span class='hs-conid'>VarT</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span>
-<a name="line-227"></a>        <span class='hs-keyword'>case</span> <span class='hs-conid'>M.lookup</span> <span class='hs-varid'>n</span> <span class='hs-varid'>te</span> <span class='hs-keyword'>of</span>
-<a name="line-228"></a>            <span class='hs-conid'>Just</span> <span class='hs-varid'>ty</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>fill</span> <span class='hs-varid'>r</span> <span class='hs-varid'>ty</span>
-<a name="line-229"></a>            <span class='hs-conid'>Nothing</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>VarT</span> <span class='hs-varid'>n</span>
-<a name="line-230"></a>    <span class='hs-varid'>fill</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>x</span><span class='hs-keyglyph'>@</span><span class='hs-conid'>ConT</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>x</span>
-<a name="line-231"></a>    <span class='hs-varid'>fill</span> <span class='hs-varid'>r</span> <span class='hs-layout'>(</span><span class='hs-conid'>AppT</span> <span class='hs-varid'>x</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>AppT</span> <span class='hs-layout'>(</span><span class='hs-varid'>fill</span> <span class='hs-varid'>r</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-varid'>fill</span> <span class='hs-varid'>r</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span>
-<a name="line-232"></a>    <span class='hs-varid'>fill</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>x</span><span class='hs-keyglyph'>@</span><span class='hs-conid'>TupleT</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>x</span>
-<a name="line-233"></a>    <span class='hs-varid'>fill</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>x</span><span class='hs-keyglyph'>@</span><span class='hs-conid'>UnboxedTupleT</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>x</span>
-<a name="line-234"></a>    <span class='hs-varid'>fill</span> <span class='hs-keyword'>_</span> <span class='hs-conid'>ListT</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>ListT</span>
-<a name="line-235"></a>    <span class='hs-varid'>fill</span> <span class='hs-keyword'>_</span> <span class='hs-conid'>ArrowT</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>ArrowT</span>
-<a name="line-236"></a>    <span class='hs-varid'>fill</span> <span class='hs-varid'>r</span> <span class='hs-layout'>(</span><span class='hs-conid'>SigT</span> <span class='hs-varid'>t</span> <span class='hs-varid'>k</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>SigT</span> <span class='hs-layout'>(</span><span class='hs-varid'>fill</span> <span class='hs-varid'>r</span> <span class='hs-varid'>t</span><span class='hs-layout'>)</span> <span class='hs-varid'>k</span>
-<a name="line-237"></a>    <span class='hs-varid'>fill</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>error</span> <span class='hs-varop'>$</span> <span class='hs-varid'>show</span> <span class='hs-varid'>x</span>
-<a name="line-238"></a>    <span class='hs-varid'>decodeHead</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>DataD</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>n</span> <span class='hs-varid'>holes</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>cons</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span>
-<a name="line-239"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>any</span> <span class='hs-varid'>isGadtCon</span> <span class='hs-varid'>cons</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-conid'>[]</span><span class='hs-layout'>)</span>
-<a name="line-240"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>map</span> <span class='hs-varid'>unTV</span> <span class='hs-varid'>holes</span><span class='hs-layout'>)</span>
-<a name="line-241"></a>    <span class='hs-varid'>decodeHead</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>NewtypeD</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>n</span> <span class='hs-varid'>holes</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>map</span> <span class='hs-varid'>unTV</span> <span class='hs-varid'>holes</span><span class='hs-layout'>)</span>
-<a name="line-242"></a>    <span class='hs-varid'>decodeHead</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>TySynD</span> <span class='hs-varid'>n</span> <span class='hs-varid'>holes</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>map</span> <span class='hs-varid'>unTV</span> <span class='hs-varid'>holes</span><span class='hs-layout'>)</span>
-<a name="line-243"></a>    <span class='hs-varid'>decodeHead</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>error</span> <span class='hs-varop'>$</span> <span class='hs-str'>"decodeHead "</span> <span class='hs-varop'>++</span> <span class='hs-varid'>show</span> <span class='hs-varid'>x</span>
-<a name="line-244"></a>    <span class='hs-varid'>decodeHead'</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>DataInstD</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>n</span> <span class='hs-varid'>tys</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>tys</span><span class='hs-layout'>)</span>
-<a name="line-245"></a>    <span class='hs-varid'>decodeBody</span> <span class='hs-layout'>(</span><span class='hs-conid'>DataD</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>decName</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>cons</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>concat</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>mapM</span> <span class='hs-layout'>(</span><span class='hs-varid'>getFieldTypes</span> <span class='hs-varid'>decName</span><span class='hs-layout'>)</span> <span class='hs-varid'>cons</span>
-<a name="line-246"></a>    <span class='hs-varid'>decodeBody</span> <span class='hs-layout'>(</span><span class='hs-conid'>DataInstD</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>decName</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>cons</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span>
-<a name="line-247"></a>        <span class='hs-varid'>concat</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>mapM</span> <span class='hs-layout'>(</span><span class='hs-varid'>getFieldTypes</span> <span class='hs-varid'>decName</span><span class='hs-layout'>)</span> <span class='hs-varid'>cons</span>
-<a name="line-248"></a>    <span class='hs-varid'>decodeBody</span> <span class='hs-layout'>(</span><span class='hs-conid'>NewtypeD</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>decName</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>con</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>getFieldTypes</span> <span class='hs-varid'>decName</span> <span class='hs-varid'>con</span>
-<a name="line-249"></a>    <span class='hs-varid'>decodeBody</span> <span class='hs-layout'>(</span><span class='hs-conid'>TySynD</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>ty</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>unwrap</span> <span class='hs-varid'>ty</span><span class='hs-keyglyph'>]</span>
-<a name="line-250"></a>    <span class='hs-varid'>decodeBody</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>error</span> <span class='hs-varop'>$</span> <span class='hs-str'>"decodeBody "</span> <span class='hs-varop'>++</span> <span class='hs-varid'>show</span> <span class='hs-varid'>x</span>
-<a name="line-251"></a>    <span class='hs-varid'>matches</span> <span class='hs-varid'>typeArgs</span> <span class='hs-layout'>(</span><span class='hs-varid'>d</span><span class='hs-keyglyph'>@</span><span class='hs-layout'>(</span><span class='hs-conid'>DataInstD</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>tys</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span><span class='hs-conop'>:</span><span class='hs-varid'>ds</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span>
-<a name="line-252"></a>        <span class='hs-varid'>fmap</span> <span class='hs-layout'>(</span><span class='hs-conid'>(,)</span> <span class='hs-varid'>d</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-varid'>unify</span> <span class='hs-varid'>typeArgs</span> <span class='hs-varid'>tys</span><span class='hs-layout'>)</span> <span class='hs-varop'>&lt;|&gt;</span> <span class='hs-varid'>matches</span> <span class='hs-varid'>typeArgs</span> <span class='hs-varid'>ds</span>
-<a name="line-253"></a>    <span class='hs-varid'>matches</span> <span class='hs-keyword'>_</span> <span class='hs-conid'>[]</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Nothing</span>
-<a name="line-254"></a>    <span class='hs-varid'>getFieldTypes</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>NormalC</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>xs</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-varop'>$</span> <span class='hs-varid'>map</span> <span class='hs-layout'>(</span><span class='hs-keyglyph'>\</span><span class='hs-layout'>(</span><span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>unwrap</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-varid'>xs</span>
-<a name="line-255"></a>    <span class='hs-varid'>getFieldTypes</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>RecC</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>xs</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-varop'>$</span> <span class='hs-varid'>map</span> <span class='hs-layout'>(</span><span class='hs-keyglyph'>\</span><span class='hs-layout'>(</span><span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>unwrap</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-varid'>xs</span>
-<a name="line-256"></a>    <span class='hs-varid'>getFieldTypes</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>InfixC</span> <span class='hs-layout'>(</span><span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-varid'>a</span><span class='hs-layout'>)</span> <span class='hs-varid'>nm</span> <span class='hs-layout'>(</span><span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-varid'>b</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span>
-<a name="line-257"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>nameBase</span> <span class='hs-varid'>nm</span> <span class='hs-varop'>==</span> <span class='hs-str'>":"</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>unwrap</span> <span class='hs-varid'>a</span><span class='hs-keyglyph'>]</span>
-<a name="line-258"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>unwrap</span> <span class='hs-varid'>a</span><span class='hs-layout'>,</span> <span class='hs-varid'>unwrap</span> <span class='hs-varid'>b</span><span class='hs-keyglyph'>]</span>
-<a name="line-259"></a>    <span class='hs-varid'>getFieldTypes</span> <span class='hs-varid'>decName</span> <span class='hs-layout'>(</span><span class='hs-conid'>GadtC</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>fs</span> <span class='hs-varid'>ret</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span>
-<a name="line-260"></a>        <span class='hs-keyword'>case</span> <span class='hs-varid'>unwrap</span> <span class='hs-varid'>ret</span> <span class='hs-keyword'>of</span>
-<a name="line-261"></a>            <span class='hs-layout'>(</span><span class='hs-varid'>retN</span><span class='hs-layout'>,</span> <span class='hs-varid'>retTys</span><span class='hs-layout'>)</span>
-<a name="line-262"></a>                <span class='hs-keyglyph'>|</span> <span class='hs-varid'>retN</span> <span class='hs-varop'>==</span> <span class='hs-conid'>Bound</span> <span class='hs-varid'>decName</span> <span class='hs-keyglyph'>-&gt;</span>
-<a name="line-263"></a>                    <span class='hs-varid'>pure</span> <span class='hs-varop'>$</span> <span class='hs-varid'>map</span> <span class='hs-layout'>(</span><span class='hs-keyglyph'>\</span><span class='hs-layout'>(</span><span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>unwrap</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-varid'>fs</span> <span class='hs-varop'>++</span> <span class='hs-varid'>map</span> <span class='hs-varid'>unwrap</span> <span class='hs-varid'>retTys</span>
-<a name="line-264"></a>                <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>-&gt;</span>
-<a name="line-265"></a>                    <span class='hs-varid'>fail</span> <span class='hs-varop'>$</span>
-<a name="line-266"></a>                    <span class='hs-str'>"sorry, GADT constructor return type must exactly "</span> <span class='hs-varop'>++</span>
-<a name="line-267"></a>                    <span class='hs-str'>"match datatype (this is a limitation in type-tree)"</span>
-<a name="line-268"></a>    <span class='hs-varid'>getFieldTypes</span> <span class='hs-varid'>decName</span> <span class='hs-layout'>(</span><span class='hs-conid'>ForallC</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>cn</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>getFieldTypes</span> <span class='hs-varid'>decName</span> <span class='hs-varid'>cn</span>
-<a name="line-269"></a>    <span class='hs-varid'>getFieldTypes</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>error</span> <span class='hs-varop'>$</span> <span class='hs-varid'>show</span> <span class='hs-varid'>x</span>
-<a name="line-270"></a>    <span class='hs-varid'>isGadtCon</span> <span class='hs-conid'>GadtC</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>True</span>
-<a name="line-271"></a>    <span class='hs-varid'>isGadtCon</span> <span class='hs-conid'>RecGadtC</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>True</span>
-<a name="line-272"></a>    <span class='hs-varid'>isGadtCon</span> <span class='hs-layout'>(</span><span class='hs-conid'>ForallC</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>c</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>isGadtCon</span> <span class='hs-varid'>c</span>
-<a name="line-273"></a>    <span class='hs-varid'>isGadtCon</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>False</span>
-<a name="line-274"></a>    <span class='hs-varid'>unTV</span> <span class='hs-layout'>(</span><span class='hs-conid'>KindedTV</span> <span class='hs-varid'>n</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>n</span>
-<a name="line-275"></a>    <span class='hs-varid'>unTV</span> <span class='hs-layout'>(</span><span class='hs-conid'>PlainTV</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>n</span>
-<a name="line-276"></a>    <span class='hs-varid'>resolution</span> <span class='hs-layout'>(</span><span class='hs-varid'>x</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-varid'>r</span><span class='hs-keyglyph'>@</span><span class='hs-conid'>ReifyEnv</span> <span class='hs-layout'>{</span><span class='hs-varid'>typeEnv</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>t</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>r</span> <span class='hs-layout'>{</span><span class='hs-varid'>typeEnv</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>M.insert</span> <span class='hs-varid'>x</span> <span class='hs-varid'>y</span> <span class='hs-varid'>t</span><span class='hs-layout'>}</span>
-<a name="line-277"></a>    <span class='hs-varid'>resolveType</span> <span class='hs-layout'>(</span><span class='hs-conid'>VarT</span> <span class='hs-varid'>x</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span>
-<a name="line-278"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-conid'>VarT</span> <span class='hs-varid'>x</span> <span class='hs-varop'>==</span> <span class='hs-varid'>y</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>error</span> <span class='hs-str'>"???"</span>
-<a name="line-279"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>resolution</span> <span class='hs-layout'>(</span><span class='hs-varid'>x</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span>
-<a name="line-280"></a>    <span class='hs-varid'>resolveType</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>id</span>
-<a name="line-281"></a>    <span class='hs-varid'>withVisit</span> <span class='hs-varid'>a</span> <span class='hs-varid'>b</span> <span class='hs-varid'>m</span> <span class='hs-keyglyph'>=</span> <span class='hs-keyword'>do</span>
-<a name="line-282"></a>        <span class='hs-varid'>r</span><span class='hs-keyglyph'>@</span><span class='hs-conid'>ReifyEnv</span> <span class='hs-layout'>{</span><span class='hs-varid'>nodes</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>nodes'</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>ask</span>
-<a name="line-283"></a>        <span class='hs-keyword'>let</span> <span class='hs-varid'>b'</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>map</span> <span class='hs-layout'>(</span><span class='hs-varid'>fill</span> <span class='hs-varid'>r</span><span class='hs-layout'>)</span> <span class='hs-varid'>b</span>
-<a name="line-284"></a>            <span class='hs-varid'>a'</span> <span class='hs-keyglyph'>=</span>
-<a name="line-285"></a>                <span class='hs-keyword'>case</span> <span class='hs-varid'>fill</span>
-<a name="line-286"></a>                         <span class='hs-varid'>r</span>
-<a name="line-287"></a>                         <span class='hs-layout'>(</span><span class='hs-keyword'>case</span> <span class='hs-varid'>a</span> <span class='hs-keyword'>of</span>
-<a name="line-288"></a>                              <span class='hs-conid'>Bound</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>ConT</span> <span class='hs-varid'>x</span>
-<a name="line-289"></a>                              <span class='hs-conid'>Unbound</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>VarT</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-keyword'>of</span>
-<a name="line-290"></a>                    <span class='hs-conid'>ConT</span> <span class='hs-varid'>n</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>Bound</span> <span class='hs-varid'>n</span>
-<a name="line-291"></a>                    <span class='hs-conid'>VarT</span> <span class='hs-varid'>n</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>Unbound</span> <span class='hs-varid'>n</span>
-<a name="line-292"></a>                    <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>undefined</span>
-<a name="line-293"></a>        <span class='hs-keyword'>if</span> <span class='hs-conid'>S.member</span> <span class='hs-layout'>(</span><span class='hs-varid'>a'</span><span class='hs-layout'>,</span> <span class='hs-varid'>b'</span><span class='hs-layout'>)</span> <span class='hs-varid'>nodes'</span>
-<a name="line-294"></a>            <span class='hs-keyword'>then</span> <span class='hs-varid'>pure</span> <span class='hs-varop'>$</span> <span class='hs-conid'>Just</span> <span class='hs-varop'>$</span> <span class='hs-conid'>Node</span> <span class='hs-layout'>(</span><span class='hs-conid'>Recursive</span> <span class='hs-varop'>$</span> <span class='hs-varid'>leaf</span> <span class='hs-layout'>(</span><span class='hs-varid'>a'</span><span class='hs-layout'>,</span> <span class='hs-varid'>b'</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-conid'>[]</span>
-<a name="line-295"></a>            <span class='hs-keyword'>else</span> <span class='hs-varid'>withReaderT</span> <span class='hs-layout'>(</span><span class='hs-keyglyph'>\</span><span class='hs-varid'>q</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>q</span> <span class='hs-layout'>{</span><span class='hs-varid'>nodes</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>S.insert</span> <span class='hs-layout'>(</span><span class='hs-varid'>a'</span><span class='hs-layout'>,</span> <span class='hs-varid'>b'</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-varid'>nodes</span> <span class='hs-varid'>q</span><span class='hs-layout'>)</span><span class='hs-layout'>}</span><span class='hs-layout'>)</span> <span class='hs-varop'>$</span> <span class='hs-varid'>m</span> <span class='hs-varid'>b'</span>
-<a name="line-296"></a>    <span class='hs-varid'>resolve</span> <span class='hs-layout'>(</span><span class='hs-conid'>Bound</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-varid'>args</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>go</span> <span class='hs-layout'>(</span><span class='hs-conid'>Bound</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-varid'>args</span>
-<a name="line-297"></a>    <span class='hs-varid'>resolve</span> <span class='hs-layout'>(</span><span class='hs-conid'>Unbound</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-varid'>args</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>go'</span> <span class='hs-varid'>x</span> <span class='hs-varid'>args</span> <span class='hs-conid'>[]</span>
-<a name="line-298"></a>      <span class='hs-keyword'>where</span>
-<a name="line-299"></a>        <span class='hs-varid'>go'</span> <span class='hs-varid'>x'</span> <span class='hs-varid'>args'</span> <span class='hs-varid'>xs</span> <span class='hs-keyglyph'>=</span> <span class='hs-keyword'>do</span>
-<a name="line-300"></a>            <span class='hs-varid'>m</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>asks</span> <span class='hs-varid'>typeEnv</span>
-<a name="line-301"></a>            <span class='hs-keyword'>case</span> <span class='hs-conid'>M.lookup</span> <span class='hs-varid'>x'</span> <span class='hs-varid'>m</span> <span class='hs-keyword'>of</span>
-<a name="line-302"></a>                <span class='hs-conid'>Just</span> <span class='hs-layout'>(</span><span class='hs-conid'>VarT</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span>
-<a name="line-303"></a>                    <span class='hs-keyglyph'>|</span> <span class='hs-varid'>elem</span> <span class='hs-varid'>y</span> <span class='hs-varid'>xs</span> <span class='hs-keyglyph'>-&gt;</span>
-<a name="line-304"></a>                        <span class='hs-varid'>pure</span> <span class='hs-varop'>$</span> <span class='hs-conid'>Just</span> <span class='hs-varop'>$</span> <span class='hs-conid'>Node</span> <span class='hs-layout'>(</span><span class='hs-conid'>Recursive</span> <span class='hs-varop'>$</span> <span class='hs-varid'>leaf</span> <span class='hs-layout'>(</span><span class='hs-conid'>Unbound</span> <span class='hs-varid'>x'</span><span class='hs-layout'>,</span> <span class='hs-varid'>args'</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-conid'>[]</span>
-<a name="line-305"></a>                    <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>go'</span> <span class='hs-varid'>y</span> <span class='hs-varid'>args'</span> <span class='hs-layout'>(</span><span class='hs-varid'>y</span> <span class='hs-conop'>:</span> <span class='hs-varid'>xs</span><span class='hs-layout'>)</span>
-<a name="line-306"></a>                <span class='hs-conid'>Just</span> <span class='hs-layout'>(</span><span class='hs-varid'>unwrap</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-layout'>(</span><span class='hs-varid'>h</span><span class='hs-layout'>,</span> <span class='hs-varid'>args''</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>go</span> <span class='hs-varid'>h</span> <span class='hs-layout'>(</span><span class='hs-varid'>args''</span> <span class='hs-varop'>++</span> <span class='hs-varid'>args'</span><span class='hs-layout'>)</span>
-<a name="line-307"></a>                <span class='hs-conid'>Nothing</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>go</span> <span class='hs-layout'>(</span><span class='hs-conid'>Unbound</span> <span class='hs-varid'>x'</span><span class='hs-layout'>)</span> <span class='hs-varid'>args'</span>
-<a name="line-308"></a>
-<a name="line-309"></a><a name="leaf"></a><span class='hs-definition'>leaf</span> <span class='hs-keyglyph'>::</span> <span class='hs-layout'>(</span><span class='hs-conid'>Binding</span><span class='hs-layout'>,</span> <span class='hs-keyglyph'>[</span><span class='hs-conid'>Type</span><span class='hs-keyglyph'>]</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>Leaf</span>
-<a name="line-310"></a><span class='hs-definition'>leaf</span> <span class='hs-layout'>(</span><span class='hs-conid'>Bound</span> <span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>ConL</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span>
-<a name="line-311"></a><span class='hs-definition'>leaf</span> <span class='hs-layout'>(</span><span class='hs-conid'>Unbound</span> <span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>VarL</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span>
-<a name="line-312"></a>
-<a name="line-313"></a><a name="unify"></a><span class='hs-definition'>unify</span> <span class='hs-layout'>(</span><span class='hs-varid'>x</span><span class='hs-conop'>:</span><span class='hs-varid'>xs</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-conid'>VarT</span> <span class='hs-keyword'>_</span><span class='hs-conop'>:</span><span class='hs-varid'>ys</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-conop'>:</span><span class='hs-layout'>)</span> <span class='hs-varid'>x</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>unify</span> <span class='hs-varid'>xs</span> <span class='hs-varid'>ys</span>
-<a name="line-314"></a><span class='hs-definition'>unify</span> <span class='hs-layout'>(</span><span class='hs-conid'>ConT</span> <span class='hs-varid'>x</span><span class='hs-conop'>:</span><span class='hs-varid'>xs</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-conid'>ConT</span> <span class='hs-varid'>y</span><span class='hs-conop'>:</span><span class='hs-varid'>ys</span><span class='hs-layout'>)</span>
-<a name="line-315"></a>    <span class='hs-keyglyph'>|</span> <span class='hs-varid'>x</span> <span class='hs-varop'>==</span> <span class='hs-varid'>y</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-conop'>:</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-conid'>ConT</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>unify</span> <span class='hs-varid'>xs</span> <span class='hs-varid'>ys</span>
-<a name="line-316"></a>    <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Nothing</span>
-<a name="line-317"></a><span class='hs-definition'>unify</span> <span class='hs-conid'>[]</span> <span class='hs-layout'>(</span><span class='hs-conid'>VarT</span> <span class='hs-varid'>y</span><span class='hs-conop'>:</span><span class='hs-varid'>ys</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-conop'>:</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-conid'>VarT</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>unify</span> <span class='hs-conid'>[]</span> <span class='hs-varid'>ys</span>
-<a name="line-318"></a><span class='hs-definition'>unify</span> <span class='hs-conid'>[]</span> <span class='hs-conid'>[]</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Just</span> <span class='hs-conid'>[]</span>
-<a name="line-319"></a><span class='hs-definition'>unify</span> <span class='hs-conid'>[]</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Nothing</span>
-<a name="line-320"></a><span class='hs-definition'>unify</span> <span class='hs-varid'>a</span> <span class='hs-varid'>b</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>error</span> <span class='hs-varop'>$</span> <span class='hs-varid'>show</span> <span class='hs-layout'>(</span><span class='hs-varid'>a</span><span class='hs-layout'>,</span> <span class='hs-varid'>b</span><span class='hs-layout'>)</span>
-<a name="line-321"></a><span class='hs-comment'>{- $setup
-<a name="line-322"></a>
-<a name="line-323"></a>&gt;&gt;&gt; :set -XTemplateHaskell -XTypeFamilies -XGADTs
+<a name="line-182"></a>                            <span class='hs-conid'>Just</span> <span class='hs-varid'>dec</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>processDec</span> <span class='hs-varid'>dec</span> <span class='hs-varid'>n</span> <span class='hs-varid'>givenArgs</span>
+<a name="line-183"></a>                            <span class='hs-conid'>Nothing</span> <span class='hs-keyglyph'>-&gt;</span>
+<a name="line-184"></a>                                <span class='hs-varid'>fail</span> <span class='hs-varop'>$</span>
+<a name="line-185"></a>                                <span class='hs-str'>"sorry, I cannot find a data instance in scope which matches: "</span> <span class='hs-varop'>++</span>
+<a name="line-186"></a>                                <span class='hs-varid'>show</span> <span class='hs-layout'>(</span><span class='hs-varid'>treeDoc</span> <span class='hs-layout'>(</span><span class='hs-conid'>Node</span> <span class='hs-layout'>(</span><span class='hs-conid'>ConL</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>givenArgs</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-conid'>[]</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span>
+<a name="line-187"></a>                    <span class='hs-conid'>DataConI</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>badInput</span> <span class='hs-str'>"a data constructor"</span>
+<a name="line-188"></a>                    <span class='hs-conid'>ClassOpI</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>badInput</span> <span class='hs-str'>"a class method"</span>
+<a name="line-189"></a>                    <span class='hs-conid'>ClassI</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>badInput</span> <span class='hs-str'>"a class name"</span>
+<a name="line-190"></a>                    <span class='hs-conid'>PatSynI</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>badInput</span> <span class='hs-str'>"a pattern synonym"</span>
+<a name="line-191"></a>                    <span class='hs-conid'>TyVarI</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>-&gt;</span>
+<a name="line-192"></a>                        <span class='hs-varid'>badInput</span> <span class='hs-str'>"an unbound type variable (how did you get here?)"</span>
+<a name="line-193"></a>                    <span class='hs-conid'>VarI</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>badInput</span> <span class='hs-str'>"an ordinary value"</span>
+<a name="line-194"></a>    <span class='hs-varid'>badInput</span> <span class='hs-varid'>s</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>fail</span> <span class='hs-varop'>$</span> <span class='hs-str'>"ttReify expects a type constructor, but was given "</span> <span class='hs-varop'>++</span> <span class='hs-varid'>s</span>
+<a name="line-195"></a>    <span class='hs-varid'>processDec</span> <span class='hs-varid'>x</span> <span class='hs-varid'>n</span> <span class='hs-varid'>givenArgs</span> <span class='hs-keyglyph'>=</span> <span class='hs-keyword'>do</span>
+<a name="line-196"></a>        <span class='hs-keyword'>let</span> <span class='hs-layout'>(</span><span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-varid'>wantedArgs</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>decodeHead</span> <span class='hs-varid'>givenArgs</span> <span class='hs-varid'>x</span>
+<a name="line-197"></a>        <span class='hs-varid'>cons</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>decodeBody</span> <span class='hs-varid'>x</span>
+<a name="line-198"></a>        <span class='hs-varid'>withReaderT</span> <span class='hs-layout'>(</span><span class='hs-keyglyph'>\</span><span class='hs-varid'>m</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>foldr</span> <span class='hs-varid'>resolution</span> <span class='hs-varid'>m</span> <span class='hs-varop'>$</span> <span class='hs-varid'>zip</span> <span class='hs-varid'>wantedArgs</span> <span class='hs-varid'>givenArgs</span><span class='hs-layout'>)</span> <span class='hs-varop'>$</span>
+<a name="line-199"></a>            <span class='hs-comment'>-- invariant: constructor fields (obviously) must be of</span>
+<a name="line-200"></a>            <span class='hs-comment'>-- kind *. if the type isn't fully applied, generate some</span>
+<a name="line-201"></a>            <span class='hs-comment'>-- placeholders and recurse. this happens when you pass in</span>
+<a name="line-202"></a>            <span class='hs-comment'>-- type function at top level (like ttReify ''Maybe)</span>
+<a name="line-203"></a>         <span class='hs-keyword'>do</span>
+<a name="line-204"></a>            <span class='hs-keyword'>if</span> <span class='hs-varid'>length</span> <span class='hs-varid'>givenArgs</span> <span class='hs-varop'>&lt;</span> <span class='hs-varid'>length</span> <span class='hs-varid'>wantedArgs</span>
+<a name="line-205"></a>                <span class='hs-keyword'>then</span> <span class='hs-keyword'>do</span>
+<a name="line-206"></a>                    <span class='hs-varid'>vars</span> <span class='hs-keyglyph'>&lt;-</span>
+<a name="line-207"></a>                        <span class='hs-varid'>lift</span> <span class='hs-varop'>$</span>
+<a name="line-208"></a>                        <span class='hs-varid'>sequence</span>
+<a name="line-209"></a>                            <span class='hs-layout'>(</span><span class='hs-varid'>fillVar</span> <span class='hs-varop'>&lt;$&gt;</span>
+<a name="line-210"></a>                             <span class='hs-varid'>drop</span> <span class='hs-layout'>(</span><span class='hs-varid'>length</span> <span class='hs-varid'>givenArgs</span><span class='hs-layout'>)</span> <span class='hs-varid'>wantedArgs</span><span class='hs-layout'>)</span>
+<a name="line-211"></a>                    <span class='hs-varid'>go</span> <span class='hs-layout'>(</span><span class='hs-conid'>Bound</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-varid'>givenArgs</span> <span class='hs-varop'>++</span> <span class='hs-varid'>vars</span><span class='hs-layout'>)</span>
+<a name="line-212"></a>                <span class='hs-keyword'>else</span> <span class='hs-conid'>Just</span> <span class='hs-varop'>.</span> <span class='hs-conid'>Node</span> <span class='hs-layout'>(</span><span class='hs-conid'>ConL</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>givenArgs</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-varop'>&lt;$&gt;</span>
+<a name="line-213"></a>                     <span class='hs-varid'>mapMaybeM</span> <span class='hs-layout'>(</span><span class='hs-varid'>uncurry</span> <span class='hs-varid'>resolve</span><span class='hs-layout'>)</span> <span class='hs-varid'>cons</span>
+<a name="line-214"></a>    <span class='hs-varid'>mapMaybeM</span> <span class='hs-varid'>m</span> <span class='hs-varid'>xs</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>catMaybes</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>mapM</span> <span class='hs-varid'>m</span> <span class='hs-varid'>xs</span>
+<a name="line-215"></a>    <span class='hs-varid'>fillVar</span> <span class='hs-layout'>(</span><span class='hs-conid'>VarT</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>VarT</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>newName</span> <span class='hs-layout'>(</span><span class='hs-varid'>nameBase</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span>
+<a name="line-216"></a>    <span class='hs-varid'>fillVar</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-varid'>x</span>
+<a name="line-217"></a>    <span class='hs-varid'>fill</span> <span class='hs-varid'>r</span><span class='hs-keyglyph'>@</span><span class='hs-conid'>ReifyEnv</span> <span class='hs-layout'>{</span><span class='hs-varid'>typeEnv</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>te</span><span class='hs-layout'>}</span> <span class='hs-layout'>(</span><span class='hs-conid'>VarT</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span>
+<a name="line-218"></a>        <span class='hs-keyword'>case</span> <span class='hs-conid'>M.lookup</span> <span class='hs-varid'>n</span> <span class='hs-varid'>te</span> <span class='hs-keyword'>of</span>
+<a name="line-219"></a>            <span class='hs-conid'>Just</span> <span class='hs-varid'>ty</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>fill</span> <span class='hs-varid'>r</span> <span class='hs-varid'>ty</span>
+<a name="line-220"></a>            <span class='hs-conid'>Nothing</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>VarT</span> <span class='hs-varid'>n</span>
+<a name="line-221"></a>    <span class='hs-varid'>fill</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>x</span><span class='hs-keyglyph'>@</span><span class='hs-conid'>ConT</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>x</span>
+<a name="line-222"></a>    <span class='hs-varid'>fill</span> <span class='hs-varid'>r</span> <span class='hs-layout'>(</span><span class='hs-conid'>AppT</span> <span class='hs-varid'>x</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>AppT</span> <span class='hs-layout'>(</span><span class='hs-varid'>fill</span> <span class='hs-varid'>r</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-varid'>fill</span> <span class='hs-varid'>r</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span>
+<a name="line-223"></a>    <span class='hs-varid'>fill</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>x</span><span class='hs-keyglyph'>@</span><span class='hs-conid'>TupleT</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>x</span>
+<a name="line-224"></a>    <span class='hs-varid'>fill</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>x</span><span class='hs-keyglyph'>@</span><span class='hs-conid'>UnboxedTupleT</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>x</span>
+<a name="line-225"></a>    <span class='hs-varid'>fill</span> <span class='hs-keyword'>_</span> <span class='hs-conid'>ListT</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>ListT</span>
+<a name="line-226"></a>    <span class='hs-varid'>fill</span> <span class='hs-keyword'>_</span> <span class='hs-conid'>ArrowT</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>ArrowT</span>
+<a name="line-227"></a>    <span class='hs-varid'>fill</span> <span class='hs-varid'>r</span> <span class='hs-layout'>(</span><span class='hs-conid'>SigT</span> <span class='hs-varid'>t</span> <span class='hs-varid'>k</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>SigT</span> <span class='hs-layout'>(</span><span class='hs-varid'>fill</span> <span class='hs-varid'>r</span> <span class='hs-varid'>t</span><span class='hs-layout'>)</span> <span class='hs-varid'>k</span>
+<a name="line-228"></a>    <span class='hs-varid'>fill</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>error</span> <span class='hs-varop'>$</span> <span class='hs-varid'>show</span> <span class='hs-varid'>x</span>
+<a name="line-229"></a>    <span class='hs-varid'>decodeHead</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>DataInstD</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>n</span> <span class='hs-varid'>tys</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>tys</span><span class='hs-layout'>)</span>
+<a name="line-230"></a>    <span class='hs-varid'>decodeHead</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>DataD</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>n</span> <span class='hs-varid'>holes</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>cons</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span>
+<a name="line-231"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>any</span> <span class='hs-varid'>isGadtCon</span> <span class='hs-varid'>cons</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-conid'>[]</span><span class='hs-layout'>)</span>
+<a name="line-232"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>map</span> <span class='hs-varid'>unTV</span> <span class='hs-varid'>holes</span><span class='hs-layout'>)</span>
+<a name="line-233"></a>    <span class='hs-varid'>decodeHead</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>NewtypeD</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>n</span> <span class='hs-varid'>holes</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>map</span> <span class='hs-varid'>unTV</span> <span class='hs-varid'>holes</span><span class='hs-layout'>)</span>
+<a name="line-234"></a>    <span class='hs-varid'>decodeHead</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>TySynD</span> <span class='hs-varid'>n</span> <span class='hs-varid'>holes</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>map</span> <span class='hs-varid'>unTV</span> <span class='hs-varid'>holes</span><span class='hs-layout'>)</span>
+<a name="line-235"></a>    <span class='hs-varid'>decodeHead</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>TySynInstD</span> <span class='hs-varid'>n</span> <span class='hs-layout'>(</span><span class='hs-conid'>TySynEqn</span> <span class='hs-varid'>holes</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>holes</span><span class='hs-layout'>)</span>
+<a name="line-236"></a>    <span class='hs-varid'>decodeHead</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>error</span> <span class='hs-varop'>$</span> <span class='hs-str'>"decodeHead "</span> <span class='hs-varop'>++</span> <span class='hs-varid'>show</span> <span class='hs-varid'>x</span>
+<a name="line-237"></a>    <span class='hs-varid'>decodeBody</span> <span class='hs-layout'>(</span><span class='hs-conid'>DataD</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>decName</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>cons</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>concat</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>mapM</span> <span class='hs-layout'>(</span><span class='hs-varid'>getFieldTypes</span> <span class='hs-varid'>decName</span><span class='hs-layout'>)</span> <span class='hs-varid'>cons</span>
+<a name="line-238"></a>    <span class='hs-varid'>decodeBody</span> <span class='hs-layout'>(</span><span class='hs-conid'>DataInstD</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>decName</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>cons</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span>
+<a name="line-239"></a>        <span class='hs-varid'>concat</span> <span class='hs-varop'>&lt;$&gt;</span> <span class='hs-varid'>mapM</span> <span class='hs-layout'>(</span><span class='hs-varid'>getFieldTypes</span> <span class='hs-varid'>decName</span><span class='hs-layout'>)</span> <span class='hs-varid'>cons</span>
+<a name="line-240"></a>    <span class='hs-varid'>decodeBody</span> <span class='hs-layout'>(</span><span class='hs-conid'>NewtypeD</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>decName</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>con</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>getFieldTypes</span> <span class='hs-varid'>decName</span> <span class='hs-varid'>con</span>
+<a name="line-241"></a>    <span class='hs-varid'>decodeBody</span> <span class='hs-layout'>(</span><span class='hs-conid'>TySynD</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>ty</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>unwrap</span> <span class='hs-varid'>ty</span><span class='hs-keyglyph'>]</span>
+<a name="line-242"></a>    <span class='hs-varid'>decodeBody</span> <span class='hs-layout'>(</span><span class='hs-conid'>TySynInstD</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>TySynEqn</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>ty</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>unwrap</span> <span class='hs-varid'>ty</span><span class='hs-keyglyph'>]</span>
+<a name="line-243"></a>    <span class='hs-varid'>decodeBody</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>error</span> <span class='hs-varop'>$</span> <span class='hs-str'>"decodeBody "</span> <span class='hs-varop'>++</span> <span class='hs-varid'>show</span> <span class='hs-varid'>x</span>
+<a name="line-244"></a>    <span class='hs-varid'>matches</span> <span class='hs-varid'>typeArgs</span> <span class='hs-layout'>(</span><span class='hs-varid'>d</span><span class='hs-keyglyph'>@</span><span class='hs-layout'>(</span><span class='hs-conid'>DataInstD</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>tys</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span><span class='hs-conop'>:</span><span class='hs-varid'>ds</span><span class='hs-layout'>)</span>
+<a name="line-245"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>unify</span> <span class='hs-varid'>typeArgs</span> <span class='hs-varid'>tys</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Just</span> <span class='hs-varid'>d</span>
+<a name="line-246"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>matches</span> <span class='hs-varid'>typeArgs</span> <span class='hs-varid'>ds</span>
+<a name="line-247"></a>    <span class='hs-varid'>matches</span> <span class='hs-varid'>typeArgs</span> <span class='hs-layout'>(</span><span class='hs-varid'>d</span><span class='hs-keyglyph'>@</span><span class='hs-layout'>(</span><span class='hs-conid'>TySynInstD</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>TySynEqn</span> <span class='hs-varid'>lhs</span> <span class='hs-varid'>rhs</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span><span class='hs-conop'>:</span><span class='hs-varid'>ds</span><span class='hs-layout'>)</span>
+<a name="line-248"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>unify</span> <span class='hs-varid'>typeArgs</span> <span class='hs-varid'>lhs</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Just</span> <span class='hs-varid'>d</span>
+<a name="line-249"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>matches</span> <span class='hs-varid'>typeArgs</span> <span class='hs-varid'>ds</span>
+<a name="line-250"></a>    <span class='hs-varid'>matches</span> <span class='hs-keyword'>_</span> <span class='hs-conid'>[]</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>Nothing</span>
+<a name="line-251"></a>    <span class='hs-varid'>getFieldTypes</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>NormalC</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>xs</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-varop'>$</span> <span class='hs-varid'>map</span> <span class='hs-layout'>(</span><span class='hs-keyglyph'>\</span><span class='hs-layout'>(</span><span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>unwrap</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-varid'>xs</span>
+<a name="line-252"></a>    <span class='hs-varid'>getFieldTypes</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>RecC</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>xs</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-varop'>$</span> <span class='hs-varid'>map</span> <span class='hs-layout'>(</span><span class='hs-keyglyph'>\</span><span class='hs-layout'>(</span><span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>unwrap</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-varid'>xs</span>
+<a name="line-253"></a>    <span class='hs-varid'>getFieldTypes</span> <span class='hs-keyword'>_</span> <span class='hs-layout'>(</span><span class='hs-conid'>InfixC</span> <span class='hs-layout'>(</span><span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-varid'>a</span><span class='hs-layout'>)</span> <span class='hs-varid'>nm</span> <span class='hs-layout'>(</span><span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-varid'>b</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span>
+<a name="line-254"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>nameBase</span> <span class='hs-varid'>nm</span> <span class='hs-varop'>==</span> <span class='hs-str'>":"</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>unwrap</span> <span class='hs-varid'>a</span><span class='hs-keyglyph'>]</span>
+<a name="line-255"></a>        <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>pure</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>unwrap</span> <span class='hs-varid'>a</span><span class='hs-layout'>,</span> <span class='hs-varid'>unwrap</span> <span class='hs-varid'>b</span><span class='hs-keyglyph'>]</span>
+<a name="line-256"></a>    <span class='hs-varid'>getFieldTypes</span> <span class='hs-varid'>decName</span> <span class='hs-layout'>(</span><span class='hs-conid'>GadtC</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>fs</span> <span class='hs-varid'>ret</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span>
+<a name="line-257"></a>        <span class='hs-keyword'>case</span> <span class='hs-varid'>unwrap</span> <span class='hs-varid'>ret</span> <span class='hs-keyword'>of</span>
+<a name="line-258"></a>            <span class='hs-layout'>(</span><span class='hs-varid'>retN</span><span class='hs-layout'>,</span> <span class='hs-varid'>retTys</span><span class='hs-layout'>)</span>
+<a name="line-259"></a>                <span class='hs-keyglyph'>|</span> <span class='hs-varid'>retN</span> <span class='hs-varop'>==</span> <span class='hs-conid'>Bound</span> <span class='hs-varid'>decName</span> <span class='hs-keyglyph'>-&gt;</span>
+<a name="line-260"></a>                    <span class='hs-varid'>pure</span> <span class='hs-varop'>$</span> <span class='hs-varid'>map</span> <span class='hs-layout'>(</span><span class='hs-keyglyph'>\</span><span class='hs-layout'>(</span><span class='hs-keyword'>_</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>unwrap</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-varid'>fs</span> <span class='hs-varop'>++</span> <span class='hs-varid'>map</span> <span class='hs-varid'>unwrap</span> <span class='hs-varid'>retTys</span>
+<a name="line-261"></a>                <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>-&gt;</span>
+<a name="line-262"></a>                    <span class='hs-varid'>fail</span> <span class='hs-varop'>$</span>
+<a name="line-263"></a>                    <span class='hs-str'>"sorry, GADT constructor return type must exactly "</span> <span class='hs-varop'>++</span>
+<a name="line-264"></a>                    <span class='hs-str'>"match datatype (this is a limitation in type-tree)"</span>
+<a name="line-265"></a>    <span class='hs-varid'>getFieldTypes</span> <span class='hs-varid'>decName</span> <span class='hs-layout'>(</span><span class='hs-conid'>ForallC</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>cn</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>getFieldTypes</span> <span class='hs-varid'>decName</span> <span class='hs-varid'>cn</span>
+<a name="line-266"></a>    <span class='hs-varid'>getFieldTypes</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>error</span> <span class='hs-varop'>$</span> <span class='hs-varid'>show</span> <span class='hs-varid'>x</span>
+<a name="line-267"></a>    <span class='hs-varid'>isGadtCon</span> <span class='hs-conid'>GadtC</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>True</span>
+<a name="line-268"></a>    <span class='hs-varid'>isGadtCon</span> <span class='hs-conid'>RecGadtC</span> <span class='hs-layout'>{</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>True</span>
+<a name="line-269"></a>    <span class='hs-varid'>isGadtCon</span> <span class='hs-layout'>(</span><span class='hs-conid'>ForallC</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>c</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>isGadtCon</span> <span class='hs-varid'>c</span>
+<a name="line-270"></a>    <span class='hs-varid'>isGadtCon</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>False</span>
+<a name="line-271"></a>    <span class='hs-varid'>unTV</span> <span class='hs-layout'>(</span><span class='hs-conid'>KindedTV</span> <span class='hs-varid'>n</span> <span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>VarT</span> <span class='hs-varid'>n</span>
+<a name="line-272"></a>    <span class='hs-varid'>unTV</span> <span class='hs-layout'>(</span><span class='hs-conid'>PlainTV</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>VarT</span> <span class='hs-varid'>n</span>
+<a name="line-273"></a>    <span class='hs-varid'>resolution</span> <span class='hs-layout'>(</span><span class='hs-conid'>VarT</span> <span class='hs-varid'>x</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-varid'>r</span><span class='hs-keyglyph'>@</span><span class='hs-conid'>ReifyEnv</span> <span class='hs-layout'>{</span><span class='hs-varid'>typeEnv</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>t</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>r</span> <span class='hs-layout'>{</span><span class='hs-varid'>typeEnv</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>M.insert</span> <span class='hs-varid'>x</span> <span class='hs-varid'>y</span> <span class='hs-varid'>t</span><span class='hs-layout'>}</span>
+<a name="line-274"></a>    <span class='hs-varid'>resolution</span> <span class='hs-layout'>(</span><span class='hs-conid'>AppT</span> <span class='hs-varid'>a</span> <span class='hs-varid'>b</span><span class='hs-layout'>,</span> <span class='hs-conid'>AppT</span> <span class='hs-varid'>c</span> <span class='hs-varid'>d</span><span class='hs-layout'>)</span> <span class='hs-varid'>r</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>resolution</span> <span class='hs-layout'>(</span><span class='hs-varid'>a</span><span class='hs-layout'>,</span><span class='hs-varid'>c</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-varid'>resolution</span> <span class='hs-layout'>(</span><span class='hs-varid'>b</span><span class='hs-layout'>,</span><span class='hs-varid'>d</span><span class='hs-layout'>)</span> <span class='hs-varid'>r</span><span class='hs-layout'>)</span>
+<a name="line-275"></a>    <span class='hs-varid'>resolution</span> <span class='hs-keyword'>_</span> <span class='hs-varid'>r</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>r</span>
+<a name="line-276"></a>    <span class='hs-varid'>withVisit</span> <span class='hs-varid'>a</span> <span class='hs-varid'>b</span> <span class='hs-varid'>m</span> <span class='hs-keyglyph'>=</span> <span class='hs-keyword'>do</span>
+<a name="line-277"></a>        <span class='hs-varid'>r</span><span class='hs-keyglyph'>@</span><span class='hs-conid'>ReifyEnv</span> <span class='hs-layout'>{</span><span class='hs-varid'>nodes</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>nodes'</span><span class='hs-layout'>}</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>ask</span>
+<a name="line-278"></a>        <span class='hs-keyword'>let</span> <span class='hs-varid'>b'</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>map</span> <span class='hs-layout'>(</span><span class='hs-varid'>fill</span> <span class='hs-varid'>r</span><span class='hs-layout'>)</span> <span class='hs-varid'>b</span>
+<a name="line-279"></a>            <span class='hs-varid'>a'</span> <span class='hs-keyglyph'>=</span>
+<a name="line-280"></a>                <span class='hs-keyword'>case</span> <span class='hs-varid'>fill</span>
+<a name="line-281"></a>                         <span class='hs-varid'>r</span>
+<a name="line-282"></a>                         <span class='hs-layout'>(</span><span class='hs-keyword'>case</span> <span class='hs-varid'>a</span> <span class='hs-keyword'>of</span>
+<a name="line-283"></a>                              <span class='hs-conid'>Bound</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>ConT</span> <span class='hs-varid'>x</span>
+<a name="line-284"></a>                              <span class='hs-conid'>Unbound</span> <span class='hs-varid'>x</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>VarT</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-keyword'>of</span>
+<a name="line-285"></a>                    <span class='hs-conid'>ConT</span> <span class='hs-varid'>n</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>Bound</span> <span class='hs-varid'>n</span>
+<a name="line-286"></a>                    <span class='hs-conid'>VarT</span> <span class='hs-varid'>n</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>Unbound</span> <span class='hs-varid'>n</span>
+<a name="line-287"></a>                    <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>undefined</span>
+<a name="line-288"></a>        <span class='hs-keyword'>if</span> <span class='hs-conid'>S.member</span> <span class='hs-layout'>(</span><span class='hs-varid'>a'</span><span class='hs-layout'>,</span> <span class='hs-varid'>b'</span><span class='hs-layout'>)</span> <span class='hs-varid'>nodes'</span>
+<a name="line-289"></a>            <span class='hs-keyword'>then</span> <span class='hs-varid'>pure</span> <span class='hs-varop'>$</span> <span class='hs-conid'>Just</span> <span class='hs-varop'>$</span> <span class='hs-conid'>Node</span> <span class='hs-layout'>(</span><span class='hs-conid'>Recursive</span> <span class='hs-varop'>$</span> <span class='hs-varid'>leaf</span> <span class='hs-layout'>(</span><span class='hs-varid'>a'</span><span class='hs-layout'>,</span> <span class='hs-varid'>b'</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-conid'>[]</span>
+<a name="line-290"></a>            <span class='hs-keyword'>else</span> <span class='hs-varid'>withReaderT</span> <span class='hs-layout'>(</span><span class='hs-keyglyph'>\</span><span class='hs-varid'>q</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>q</span> <span class='hs-layout'>{</span><span class='hs-varid'>nodes</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>S.insert</span> <span class='hs-layout'>(</span><span class='hs-varid'>a'</span><span class='hs-layout'>,</span> <span class='hs-varid'>b'</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-varid'>nodes</span> <span class='hs-varid'>q</span><span class='hs-layout'>)</span><span class='hs-layout'>}</span><span class='hs-layout'>)</span> <span class='hs-varop'>$</span> <span class='hs-varid'>m</span> <span class='hs-varid'>b'</span>
+<a name="line-291"></a>    <span class='hs-varid'>resolve</span> <span class='hs-layout'>(</span><span class='hs-conid'>Bound</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-varid'>args</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>go</span> <span class='hs-layout'>(</span><span class='hs-conid'>Bound</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-varid'>args</span>
+<a name="line-292"></a>    <span class='hs-varid'>resolve</span> <span class='hs-layout'>(</span><span class='hs-conid'>Unbound</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-varid'>args</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>go'</span> <span class='hs-varid'>x</span> <span class='hs-varid'>args</span> <span class='hs-conid'>[]</span>
+<a name="line-293"></a>      <span class='hs-keyword'>where</span>
+<a name="line-294"></a>        <span class='hs-varid'>go'</span> <span class='hs-varid'>x'</span> <span class='hs-varid'>args'</span> <span class='hs-varid'>xs</span> <span class='hs-keyglyph'>=</span> <span class='hs-keyword'>do</span>
+<a name="line-295"></a>            <span class='hs-varid'>m</span> <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>asks</span> <span class='hs-varid'>typeEnv</span>
+<a name="line-296"></a>            <span class='hs-keyword'>case</span> <span class='hs-conid'>M.lookup</span> <span class='hs-varid'>x'</span> <span class='hs-varid'>m</span> <span class='hs-keyword'>of</span>
+<a name="line-297"></a>                <span class='hs-conid'>Just</span> <span class='hs-layout'>(</span><span class='hs-conid'>VarT</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span>
+<a name="line-298"></a>                    <span class='hs-keyglyph'>|</span> <span class='hs-varid'>elem</span> <span class='hs-varid'>y</span> <span class='hs-varid'>xs</span> <span class='hs-keyglyph'>-&gt;</span>
+<a name="line-299"></a>                        <span class='hs-varid'>pure</span> <span class='hs-varop'>$</span> <span class='hs-conid'>Just</span> <span class='hs-varop'>$</span> <span class='hs-conid'>Node</span> <span class='hs-layout'>(</span><span class='hs-conid'>Recursive</span> <span class='hs-varop'>$</span> <span class='hs-varid'>leaf</span> <span class='hs-layout'>(</span><span class='hs-conid'>Unbound</span> <span class='hs-varid'>x'</span><span class='hs-layout'>,</span> <span class='hs-varid'>args'</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-conid'>[]</span>
+<a name="line-300"></a>                    <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>go'</span> <span class='hs-varid'>y</span> <span class='hs-varid'>args'</span> <span class='hs-layout'>(</span><span class='hs-varid'>y</span> <span class='hs-conop'>:</span> <span class='hs-varid'>xs</span><span class='hs-layout'>)</span>
+<a name="line-301"></a>                <span class='hs-conid'>Just</span> <span class='hs-layout'>(</span><span class='hs-varid'>unwrap</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-layout'>(</span><span class='hs-varid'>h</span><span class='hs-layout'>,</span> <span class='hs-varid'>args''</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>go</span> <span class='hs-varid'>h</span> <span class='hs-layout'>(</span><span class='hs-varid'>args''</span> <span class='hs-varop'>++</span> <span class='hs-varid'>args'</span><span class='hs-layout'>)</span>
+<a name="line-302"></a>                <span class='hs-conid'>Nothing</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>go</span> <span class='hs-layout'>(</span><span class='hs-conid'>Unbound</span> <span class='hs-varid'>x'</span><span class='hs-layout'>)</span> <span class='hs-varid'>args'</span>
+<a name="line-303"></a>
+<a name="line-304"></a><a name="leaf"></a><span class='hs-definition'>leaf</span> <span class='hs-keyglyph'>::</span> <span class='hs-layout'>(</span><span class='hs-conid'>Binding</span><span class='hs-layout'>,</span> <span class='hs-keyglyph'>[</span><span class='hs-conid'>Type</span><span class='hs-keyglyph'>]</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>Leaf</span>
+<a name="line-305"></a><span class='hs-definition'>leaf</span> <span class='hs-layout'>(</span><span class='hs-conid'>Bound</span> <span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>ConL</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>x</span><span class='hs-layout'>)</span>
+<a name="line-306"></a><span class='hs-definition'>leaf</span> <span class='hs-layout'>(</span><span class='hs-conid'>Unbound</span> <span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>VarL</span> <span class='hs-layout'>(</span><span class='hs-varid'>n</span><span class='hs-layout'>,</span> <span class='hs-varid'>y</span><span class='hs-layout'>)</span>
+<a name="line-307"></a>
+<a name="line-308"></a><a name="unify"></a><span class='hs-comment'>-- not actually unify, we allow X amount of type variables (but nothing</span>
+<a name="line-309"></a><span class='hs-comment'>-- else) at the end of an argument list</span>
+<a name="line-310"></a><span class='hs-definition'>unify</span> <span class='hs-conid'>[]</span> <span class='hs-conid'>[]</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>True</span>
+<a name="line-311"></a><span class='hs-definition'>unify</span> <span class='hs-varid'>xs</span> <span class='hs-layout'>(</span><span class='hs-conid'>VarT</span> <span class='hs-keyword'>_</span><span class='hs-conop'>:</span><span class='hs-varid'>ys</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>unify</span> <span class='hs-layout'>(</span><span class='hs-varid'>drop</span> <span class='hs-num'>1</span> <span class='hs-varid'>xs</span><span class='hs-layout'>)</span> <span class='hs-varid'>ys</span>
+<a name="line-312"></a><span class='hs-definition'>unify</span> <span class='hs-layout'>(</span><span class='hs-conid'>ConT</span> <span class='hs-varid'>x</span><span class='hs-conop'>:</span><span class='hs-varid'>xs</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-conid'>ConT</span> <span class='hs-varid'>y</span><span class='hs-conop'>:</span><span class='hs-varid'>ys</span><span class='hs-layout'>)</span>
+<a name="line-313"></a>    <span class='hs-keyglyph'>|</span> <span class='hs-varid'>x</span> <span class='hs-varop'>==</span> <span class='hs-varid'>y</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>unify</span> <span class='hs-varid'>xs</span> <span class='hs-varid'>ys</span>
+<a name="line-314"></a>    <span class='hs-keyglyph'>|</span> <span class='hs-varid'>otherwise</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>False</span>
+<a name="line-315"></a><span class='hs-definition'>unify</span> <span class='hs-layout'>(</span><span class='hs-conid'>AppT</span> <span class='hs-varid'>a</span> <span class='hs-varid'>b</span><span class='hs-conop'>:</span><span class='hs-varid'>xs</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-conid'>AppT</span> <span class='hs-varid'>c</span> <span class='hs-varid'>d</span><span class='hs-conop'>:</span><span class='hs-varid'>ys</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>unify</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>a</span><span class='hs-keyglyph'>]</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>c</span><span class='hs-keyglyph'>]</span> <span class='hs-varop'>&amp;&amp;</span> <span class='hs-varid'>unify</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>b</span><span class='hs-keyglyph'>]</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>d</span><span class='hs-keyglyph'>]</span> <span class='hs-varop'>&amp;&amp;</span> <span class='hs-varid'>unify</span> <span class='hs-varid'>xs</span> <span class='hs-varid'>ys</span>
+<a name="line-316"></a><span class='hs-definition'>unify</span> <span class='hs-layout'>(</span><span class='hs-varid'>x</span><span class='hs-conop'>:</span><span class='hs-varid'>xs</span><span class='hs-layout'>)</span> <span class='hs-layout'>(</span><span class='hs-varid'>y</span><span class='hs-conop'>:</span><span class='hs-varid'>ys</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>x</span> <span class='hs-varop'>==</span> <span class='hs-varid'>y</span> <span class='hs-varop'>&amp;&amp;</span> <span class='hs-varid'>unify</span> <span class='hs-varid'>xs</span> <span class='hs-varid'>ys</span>
+<a name="line-317"></a><span class='hs-definition'>unify</span> <span class='hs-keyword'>_</span> <span class='hs-keyword'>_</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>False</span>
+<a name="line-318"></a><span class='hs-comment'>{- $setup
+<a name="line-319"></a>
+<a name="line-320"></a>&gt;&gt;&gt; :set -XTemplateHaskell -XTypeFamilies -XGADTs
+<a name="line-321"></a>
+<a name="line-322"></a>-}</span>
+<a name="line-323"></a><span class='hs-comment'>{- $usage
 <a name="line-324"></a>
-<a name="line-325"></a>-}</span>
-<a name="line-326"></a><span class='hs-comment'>{- $usage
-<a name="line-327"></a>
-<a name="line-328"></a>== Basic usage
-<a name="line-329"></a>
-<a name="line-330"></a>'ttReify' allows you to build a 'Tree' containing type information for
-<a name="line-331"></a>each field of any given datatype, which can then be examined if you want
-<a name="line-332"></a>to, for example, generate class instances for a deeply nested datatype.
-<a name="line-333"></a>(The idea for this package came about when I was trying to figure out the easiest
-<a name="line-334"></a>way to generate several dozen instances for Cabal's @GenericPackageDescription@.)
-<a name="line-335"></a>
-<a name="line-336"></a>=== Plain constructors
-<a name="line-337"></a>
-<a name="line-338"></a>&gt;&gt;&gt; data Foo a = Foo { field1 :: Either a Int }
-<a name="line-339"></a>&gt;&gt;&gt; putStr $(ttDescribe ''Foo)
-<a name="line-340"></a>Ghci4.Foo a_0
-<a name="line-341"></a>|
-<a name="line-342"></a>`- Data.Either.Either a_0 GHC.Types.Int
-<a name="line-343"></a>   |
-<a name="line-344"></a>   +- $a_0
-<a name="line-345"></a>   |
-<a name="line-346"></a>   `- GHC.Types.Int
-<a name="line-347"></a>
-<a name="line-348"></a>=== Passing type arguments
-<a name="line-349"></a>
-<a name="line-350"></a>@ttReify@ and friends accept any value with an 'IsDatatype' instance.
-<a name="line-351"></a>
-<a name="line-352"></a>&gt;&gt;&gt; putStr $(ttDescribe [t|Maybe Int|])
-<a name="line-353"></a>GHC.Base.Maybe GHC.Types.Int
-<a name="line-354"></a>|
-<a name="line-355"></a>`- GHC.Types.Int
-<a name="line-356"></a>
-<a name="line-357"></a>=== GADTs
-<a name="line-358"></a>
-<a name="line-359"></a>&gt;&gt;&gt; data MyGADT a where Con1 :: String -&gt; MyGADT String; Con2 :: Int -&gt; MyGADT [Int]
-<a name="line-360"></a>&gt;&gt;&gt; putStr $(ttDescribe ''MyGADT)
-<a name="line-361"></a>Ghci10.MyGADT
-<a name="line-362"></a>|
-<a name="line-363"></a>+- GHC.Base.String
-<a name="line-364"></a>|  |
-<a name="line-365"></a>|  `- GHC.Types.[] GHC.Types.Char
-<a name="line-366"></a>|     |
-<a name="line-367"></a>|     `- GHC.Types.Char
-<a name="line-368"></a>|
-<a name="line-369"></a>+- GHC.Base.String
-<a name="line-370"></a>|  |
-<a name="line-371"></a>|  `- GHC.Types.[] GHC.Types.Char
-<a name="line-372"></a>|     |
-<a name="line-373"></a>|     `- GHC.Types.Char
-<a name="line-374"></a>|
-<a name="line-375"></a>+- GHC.Types.Int
-<a name="line-376"></a>|
-<a name="line-377"></a>`- GHC.Types.[] GHC.Types.Int
-<a name="line-378"></a>   |
-<a name="line-379"></a>   `- GHC.Types.Int
+<a name="line-325"></a>== Basic usage
+<a name="line-326"></a>
+<a name="line-327"></a>'ttReify' allows you to build a 'Tree' containing type information for
+<a name="line-328"></a>each field of any given datatype, which can then be examined if you want
+<a name="line-329"></a>to, for example, generate class instances for a deeply nested datatype.
+<a name="line-330"></a>(The idea for this package came about when I was trying to figure out the easiest
+<a name="line-331"></a>way to generate several dozen instances for Cabal's @GenericPackageDescription@.)
+<a name="line-332"></a>
+<a name="line-333"></a>=== Plain constructors
+<a name="line-334"></a>
+<a name="line-335"></a>&gt;&gt;&gt; data Foo a = Foo { field1 :: Either a Int }
+<a name="line-336"></a>&gt;&gt;&gt; putStr $(ttDescribe ''Foo)
+<a name="line-337"></a>Ghci4.Foo a_0
+<a name="line-338"></a>|
+<a name="line-339"></a>`- Data.Either.Either a_0 GHC.Types.Int
+<a name="line-340"></a>   |
+<a name="line-341"></a>   +- $a_0
+<a name="line-342"></a>   |
+<a name="line-343"></a>   `- GHC.Types.Int
+<a name="line-344"></a>
+<a name="line-345"></a>=== Passing type arguments
+<a name="line-346"></a>
+<a name="line-347"></a>@ttReify@ and friends accept any value with an 'IsDatatype' instance.
+<a name="line-348"></a>
+<a name="line-349"></a>&gt;&gt;&gt; putStr $(ttDescribe [t|Maybe Int|])
+<a name="line-350"></a>GHC.Base.Maybe GHC.Types.Int
+<a name="line-351"></a>|
+<a name="line-352"></a>`- GHC.Types.Int
+<a name="line-353"></a>
+<a name="line-354"></a>=== GADTs
+<a name="line-355"></a>
+<a name="line-356"></a>&gt;&gt;&gt; data MyGADT a where Con1 :: String -&gt; MyGADT String; Con2 :: Int -&gt; MyGADT [Int]
+<a name="line-357"></a>&gt;&gt;&gt; putStr $(ttDescribe ''MyGADT)
+<a name="line-358"></a>Ghci10.MyGADT
+<a name="line-359"></a>|
+<a name="line-360"></a>+- GHC.Base.String
+<a name="line-361"></a>|  |
+<a name="line-362"></a>|  `- GHC.Types.[] GHC.Types.Char
+<a name="line-363"></a>|     |
+<a name="line-364"></a>|     `- GHC.Types.Char
+<a name="line-365"></a>|
+<a name="line-366"></a>+- GHC.Base.String
+<a name="line-367"></a>|  |
+<a name="line-368"></a>|  `- GHC.Types.[] GHC.Types.Char
+<a name="line-369"></a>|     |
+<a name="line-370"></a>|     `- GHC.Types.Char
+<a name="line-371"></a>|
+<a name="line-372"></a>+- GHC.Types.Int
+<a name="line-373"></a>|
+<a name="line-374"></a>`- GHC.Types.[] GHC.Types.Int
+<a name="line-375"></a>   |
+<a name="line-376"></a>   `- GHC.Types.Int
+<a name="line-377"></a>
+<a name="line-378"></a>When reifying GADTs, constructors' return types are treated as another
+<a name="line-379"></a>field.
 <a name="line-380"></a>
-<a name="line-381"></a>When reifying GADTs, constructors' return types are treated as another
-<a name="line-382"></a>field.
-<a name="line-383"></a>
-<a name="line-384"></a>=== Data family instances
-<a name="line-385"></a>
-<a name="line-386"></a>&gt;&gt;&gt; class Foo a where data Bar a :: * -&gt; *
-<a name="line-387"></a>&gt;&gt;&gt; instance Foo Int where data Bar Int a = IntBar { bar :: Maybe (Int, a) }
-<a name="line-388"></a>&gt;&gt;&gt; putStr $(ttDescribe [t|Bar Int|])
-<a name="line-389"></a>Ghci14.Bar GHC.Types.Int a_0
-<a name="line-390"></a>|
-<a name="line-391"></a>`- GHC.Base.Maybe (GHC.Types.Int, a_0)
-<a name="line-392"></a>   |
-<a name="line-393"></a>   `- GHC.Tuple.(,) GHC.Types.Int a_0
-<a name="line-394"></a>      |
-<a name="line-395"></a>      +- GHC.Types.Int
-<a name="line-396"></a>      |
-<a name="line-397"></a>      `- $a_0
-<a name="line-398"></a>
-<a name="line-399"></a>=== Recursive datatypes
-<a name="line-400"></a>
-<a name="line-401"></a>&gt;&gt;&gt; data Foo a = Foo { a :: Either Int (Bar a) }; data Bar b = Bar { b :: Either (Foo b) Int }
-<a name="line-402"></a>&gt;&gt;&gt; putStr $(ttDescribe ''Foo)
-<a name="line-403"></a>Ghci20.Foo a_0
-<a name="line-404"></a>|
-<a name="line-405"></a>`- Data.Either.Either GHC.Types.Int (Ghci20.Bar a_0)
-<a name="line-406"></a>   |
-<a name="line-407"></a>   +- GHC.Types.Int
-<a name="line-408"></a>   |
-<a name="line-409"></a>   `- Ghci20.Bar a_0
-<a name="line-410"></a>      |
-<a name="line-411"></a>      `- Data.Either.Either (Ghci20.Foo a_0) GHC.Types.Int
-<a name="line-412"></a>         |
-<a name="line-413"></a>         +- &lt;recursive Ghci20.Foo a_0&gt;
-<a name="line-414"></a>         |
-<a name="line-415"></a>         `- GHC.Types.Int
-<a name="line-416"></a>
-<a name="line-417"></a>== Passing options
-<a name="line-418"></a>
-<a name="line-419"></a>If needed, @type-tree@ allows you to specify that primitive type constructors
-<a name="line-420"></a>should be included in its output.
-<a name="line-421"></a>
-<a name="line-422"></a>&gt;&gt;&gt; data Baz = Baz { field :: [Int] }
-<a name="line-423"></a>&gt;&gt;&gt; putStr $(ttDescribeOpts defaultOpts { expandPrim = True } ''Baz)
-<a name="line-424"></a>Ghci24.Baz
-<a name="line-425"></a>|
-<a name="line-426"></a>`- GHC.Types.[] GHC.Types.Int
-<a name="line-427"></a>   |
-<a name="line-428"></a>   `- GHC.Types.Int
-<a name="line-429"></a>      |
-<a name="line-430"></a>      `- GHC.Prim.Int#
-<a name="line-431"></a>
-<a name="line-432"></a>Note that the function arrow @(-&gt;)@, despite being a primitive type constructor,
-<a name="line-433"></a>will always be included even with @'expandPrim' = False@, as otherwise you
-<a name="line-434"></a>would never be able to get useful information out of a field with a function type.
-<a name="line-435"></a>
-<a name="line-436"></a>You can also specify a set of names where @type-tree@ should stop descending, if,
-<a name="line-437"></a>for example, you have no desire to see @String -&gt; [] -&gt; Char@ ad nauseam in
-<a name="line-438"></a>your tree.
-<a name="line-439"></a>
-<a name="line-440"></a>&gt;&gt;&gt; data Bar = Bar (Either String [String])
-<a name="line-441"></a>&gt;&gt;&gt; putStr $(ttDescribeOpts defaultOpts { terminals = S.fromList [''String] } ''Bar)
-<a name="line-442"></a>Ghci28.Bar
-<a name="line-443"></a>|
-<a name="line-444"></a>`- Data.Either.Either GHC.Base.String ([GHC.Base.String])
-<a name="line-445"></a>   |
-<a name="line-446"></a>   +- GHC.Base.String
-<a name="line-447"></a>   |
-<a name="line-448"></a>   `- GHC.Types.[] GHC.Base.String
-<a name="line-449"></a>      |
-<a name="line-450"></a>      `- GHC.Base.String
-<a name="line-451"></a>
-<a name="line-452"></a>-}</span>
+<a name="line-381"></a>=== Data/type family instances
+<a name="line-382"></a>
+<a name="line-383"></a>&gt;&gt;&gt; class Foo a where data Bar a :: * -&gt; *
+<a name="line-384"></a>&gt;&gt;&gt; instance Foo Int where data Bar Int a = IntBar { bar :: Maybe (Int, a) }
+<a name="line-385"></a>&gt;&gt;&gt; putStr $(ttDescribe [t|Bar Int|])
+<a name="line-386"></a>Ghci14.Bar GHC.Types.Int a_0
+<a name="line-387"></a>|
+<a name="line-388"></a>`- GHC.Base.Maybe (GHC.Types.Int, a_0)
+<a name="line-389"></a>   |
+<a name="line-390"></a>   `- GHC.Tuple.(,) GHC.Types.Int a_0
+<a name="line-391"></a>      |
+<a name="line-392"></a>      +- GHC.Types.Int
+<a name="line-393"></a>      |
+<a name="line-394"></a>      `- $a_0
+<a name="line-395"></a>
+<a name="line-396"></a>&gt;&gt;&gt; :module +GHC.Exts Data.Map
+<a name="line-397"></a>&gt;&gt;&gt; putStr $(ttDescribe [t|Item (Map Int Int)|])
+<a name="line-398"></a>GHC.Exts.Item (Data.Map.Internal.Map GHC.Types.Int GHC.Types.Int)
+<a name="line-399"></a>|
+<a name="line-400"></a>`- GHC.Tuple.(,) GHC.Types.Int GHC.Types.Int
+<a name="line-401"></a>   |
+<a name="line-402"></a>   +- GHC.Types.Int
+<a name="line-403"></a>   |
+<a name="line-404"></a>   `- GHC.Types.Int
+<a name="line-405"></a>
+<a name="line-406"></a>=== Recursive datatypes
+<a name="line-407"></a>
+<a name="line-408"></a>&gt;&gt;&gt; data Foo a = Foo { a :: Either Int (Bar a) }; data Bar b = Bar { b :: Either (Foo b) Int }
+<a name="line-409"></a>&gt;&gt;&gt; putStr $(ttDescribe ''Foo)
+<a name="line-410"></a>Ghci23.Foo a_0
+<a name="line-411"></a>|
+<a name="line-412"></a>`- Data.Either.Either GHC.Types.Int (Ghci23.Bar a_0)
+<a name="line-413"></a>   |
+<a name="line-414"></a>   +- GHC.Types.Int
+<a name="line-415"></a>   |
+<a name="line-416"></a>   `- Ghci23.Bar a_0
+<a name="line-417"></a>      |
+<a name="line-418"></a>      `- Data.Either.Either (Ghci23.Foo a_0) GHC.Types.Int
+<a name="line-419"></a>         |
+<a name="line-420"></a>         +- &lt;recursive Ghci23.Foo a_0&gt;
+<a name="line-421"></a>         |
+<a name="line-422"></a>         `- GHC.Types.Int
+<a name="line-423"></a>
+<a name="line-424"></a>== Passing options
+<a name="line-425"></a>
+<a name="line-426"></a>If needed, @type-tree@ allows you to specify that primitive type constructors
+<a name="line-427"></a>should be included in its output.
+<a name="line-428"></a>
+<a name="line-429"></a>&gt;&gt;&gt; data Baz = Baz { field :: [Int] }
+<a name="line-430"></a>&gt;&gt;&gt; putStr $(ttDescribeOpts defaultOpts { expandPrim = True } ''Baz)
+<a name="line-431"></a>Ghci27.Baz
+<a name="line-432"></a>|
+<a name="line-433"></a>`- GHC.Types.[] GHC.Types.Int
+<a name="line-434"></a>   |
+<a name="line-435"></a>   `- GHC.Types.Int
+<a name="line-436"></a>      |
+<a name="line-437"></a>      `- GHC.Prim.Int#
+<a name="line-438"></a>
+<a name="line-439"></a>Note that the function arrow @(-&gt;)@, despite being a primitive type constructor,
+<a name="line-440"></a>will always be included even with @'expandPrim' = False@, as otherwise you
+<a name="line-441"></a>would never be able to get useful information out of a field with a function type.
+<a name="line-442"></a>
+<a name="line-443"></a>You can also specify a set of names where @type-tree@ should stop descending, if,
+<a name="line-444"></a>for example, you have no desire to see @String -&gt; [] -&gt; Char@ ad nauseam in
+<a name="line-445"></a>your tree.
+<a name="line-446"></a>
+<a name="line-447"></a>&gt;&gt;&gt; data Bar = Bar (Either String [String])
+<a name="line-448"></a>&gt;&gt;&gt; putStr $(ttDescribeOpts defaultOpts { terminals = S.fromList [''String] } ''Bar)
+<a name="line-449"></a>Ghci31.Bar
+<a name="line-450"></a>|
+<a name="line-451"></a>`- Data.Either.Either GHC.Base.String ([GHC.Base.String])
+<a name="line-452"></a>   |
+<a name="line-453"></a>   +- GHC.Base.String
+<a name="line-454"></a>   |
+<a name="line-455"></a>   `- GHC.Types.[] GHC.Base.String
+<a name="line-456"></a>      |
+<a name="line-457"></a>      `- GHC.Base.String
+<a name="line-458"></a>
+<a name="line-459"></a>-}</span>
 </pre></body>
 </html>

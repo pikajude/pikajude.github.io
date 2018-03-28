@@ -41,7 +41,7 @@ way to generate several dozen instances for Cabal's <code>GenericPackageDescript
    |
    `- GHC.Types.Int
 </pre><p>When reifying GADTs, constructors' return types are treated as another
-field.</p><h3>Data family instances</h3><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>class Foo a where data Bar a :: * -&gt; *
+field.</p><h3>Data/type family instances</h3><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>class Foo a where data Bar a :: * -&gt; *
 </code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>instance Foo Int where data Bar Int a = IntBar { bar :: Maybe (Int, a) }
 </code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>putStr $(ttDescribe [t|Bar Int|])
 </code></strong>Ghci14.Bar GHC.Types.Int a_0
@@ -53,25 +53,34 @@ field.</p><h3>Data family instances</h3><pre class="screen"><code class="prompt"
       +- GHC.Types.Int
       |
       `- $a_0
-</pre><h3>Recursive datatypes</h3><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>data Foo a = Foo { a :: Either Int (Bar a) }; data Bar b = Bar { b :: Either (Foo b) Int }
-</code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>putStr $(ttDescribe ''Foo)
-</code></strong>Ghci20.Foo a_0
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>:module +GHC.Exts Data.Map
+</code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>putStr $(ttDescribe [t|Item (Map Int Int)|])
+</code></strong>GHC.Exts.Item (Data.Map.Internal.Map GHC.Types.Int GHC.Types.Int)
 |
-`- Data.Either.Either GHC.Types.Int (Ghci20.Bar a_0)
+`- GHC.Tuple.(,) GHC.Types.Int GHC.Types.Int
    |
    +- GHC.Types.Int
    |
-   `- Ghci20.Bar a_0
+   `- GHC.Types.Int
+</pre><h3>Recursive datatypes</h3><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>data Foo a = Foo { a :: Either Int (Bar a) }; data Bar b = Bar { b :: Either (Foo b) Int }
+</code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>putStr $(ttDescribe ''Foo)
+</code></strong>Ghci23.Foo a_0
+|
+`- Data.Either.Either GHC.Types.Int (Ghci23.Bar a_0)
+   |
+   +- GHC.Types.Int
+   |
+   `- Ghci23.Bar a_0
       |
-      `- Data.Either.Either (Ghci20.Foo a_0) GHC.Types.Int
+      `- Data.Either.Either (Ghci23.Foo a_0) GHC.Types.Int
          |
-         +- &lt;recursive Ghci20.Foo a_0&gt;
+         +- &lt;recursive Ghci23.Foo a_0&gt;
          |
          `- GHC.Types.Int
 </pre><h2>Passing options</h2><p>If needed, <code>type-tree</code> allows you to specify that primitive type constructors
 should be included in its output.</p><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>data Baz = Baz { field :: [Int] }
 </code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>putStr $(ttDescribeOpts defaultOpts { expandPrim = True } ''Baz)
-</code></strong>Ghci24.Baz
+</code></strong>Ghci27.Baz
 |
 `- GHC.Types.[] GHC.Types.Int
    |
@@ -84,7 +93,7 @@ would never be able to get useful information out of a field with a function typ
 for example, you have no desire to see <code>String -&gt; [] -&gt; Char</code> ad nauseam in
 your tree.</p><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>data Bar = Bar (Either String [String])
 </code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>putStr $(ttDescribeOpts defaultOpts { terminals = S.fromList [''String] } ''Bar)
-</code></strong>Ghci28.Bar
+</code></strong>Ghci31.Bar
 |
 `- Data.Either.Either GHC.Base.String ([GHC.Base.String])
    |
